@@ -1,12 +1,24 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link :to="`/${$i18n.locale}`">Home</router-link> |
+      <router-link :to="`/${$i18n.locale}/about`">About</router-link>
     </div>
+    <LanguageSwitcher />
     <router-view/>
   </div>
 </template>
+
+<script>
+import LanguageSwitcher from "@/components/LanguageSwitcher.vue";
+
+export default {
+  name: "App",
+  components: {
+    LanguageSwitcher
+  }
+}
+</script>
 
 <style lang="scss">
 #app {
